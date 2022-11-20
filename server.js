@@ -3,7 +3,7 @@ const app = express()
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
 
-const Rorshach = require('./models/rorschachSchema.js')
+const Rorschach = require('./models/rorschachSchema.js')
 const  rorSeed = require('./models/rorschachs.js')
 
 // MIDDLEWARE //
@@ -11,10 +11,10 @@ app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 app.use(express.static('public'))
 
-// BIRD SEED //
+// IMAGE SEED //
 
 app.get('/rorschach-test/seed', (req, res) => {
-    Birds.create(birdSeed, (err, data) => {
+    Rorschach.create(rorSeed, (err, data) => {
         console.log('added rorshach data')
         res.redirect('/rorschach-test')
     })
@@ -25,7 +25,7 @@ app.get('/rorschach-test/seed', (req, res) => {
 // Index
 
 app.get('/rorschach-test', (req, res) => {
-    Birds.find({}, (err, allImages) => {
+    Rorschach.find({}, (err, allImages) => {
         res.render('index.ejs', {
             testDb: allImages
         })
@@ -35,7 +35,7 @@ app.get('/rorschach-test', (req, res) => {
 // EDIT
 
 app.get('/rorschach-test/:id/edit', (req, res) => {
-    Birds.findById(req.params.id, (err, foundEntry) => {
+    Rorschach.findById(req.params.id, (err, foundEntry) => {
         res.render('edit.ejs', {
             foundEntry
         })
@@ -46,7 +46,7 @@ app.get('/rorschach-test/:id/edit', (req, res) => {
 // SHOW
 
 app.get('/rorschach-test/:id/show', (req, res) => {
-    Birds.findById(req.params.id, (err, foundEntry) =>{
+    Rorschach.findById(req.params.id, (err, foundEntry) =>{
         res.render('show.ejs', {
             foundEntry
         })
@@ -65,14 +65,14 @@ app.get('/rorschach-test/create', (req, res) => {
 // CREATE
 
 app.post('/rorschach-test', (req, res) =>{
-    Birds.create(req.body, (err, createdEntry)=>{
+    Rorschach.create(req.body, (err, createdEntry)=>{
         res.redirect('/rorschach-test')
     })
 })
 // EDIT
 
 app.put('/rorschach-test/:id', (req, res) =>{
-    Birds.findByIdAndUpdate(req.params.id, req.body, {new:true},  (err, updatedEntry)=>{
+    Rorschach.findByIdAndUpdate(req.params.id, req.body, {new:true},  (err, updatedEntry)=>{
         res.redirect('/rorschach-test')
     })
 })
@@ -80,7 +80,7 @@ app.put('/rorschach-test/:id', (req, res) =>{
 // DELETE
 
 app.delete('/rorschach-test/:id', (req, res) => {
-    Birds.findByIdAndRemove(req.params.id, (err, data) => {
+    Rorschach.findByIdAndRemove(req.params.id, (err, data) => {
         res.redirect('/rorschach-test')
     })
 })
