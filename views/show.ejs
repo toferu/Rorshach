@@ -7,6 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Show</h1>
+    <h1>What do you see?</h1>
+    <div class="container">
+        <% let i = Math.floor(Math.random() * foundEntry.length)%>
+       <img src="<%=foundEntry[i].image %>" alt=""> 
+       <form>
+        What do you see? <input type="text" name="statement" value="<%=foundEntry.statement %>"
+       </form>
+       <input type="submit" name"" value="Submit Response">
+       <form action="/rorschach-test/<%=foundEntry.id %>?_method=PUT" method="POST"></form>
+    </div>
 </body>
 </html>
