@@ -22,11 +22,11 @@ app.get('/rorschach-test/seed', (req, res) => {
 
 // GET ROUTES //
 
-// Index
+// This is the page where users input their interpretations of images
 
-app.get('/rorschach-test', (req, res) => {
+app.get('/rorschach-test/:id/show', (req, res) => {
     Rorschach.find({}, (err, allImages) => {
-        res.render('index.ejs', {
+        res.render('show.ejs', {
             testDb: allImages
         })
     })
@@ -34,24 +34,35 @@ app.get('/rorschach-test', (req, res) => {
 
 // EDIT
 
-app.get('/rorschach-test/:id/edit', (req, res) => {
-    Rorschach.findById(req.params.id, (err, foundEntry) => {
+// app.get('/rorschach-test/edit', (req, res) => {
+//     Rorschach.findById(req.params.id, (err, foundEntry) => {
+//         res.render('edit.ejs', {
+//             foundEntry
+//         })
+//     })
+// })
+
+app.get('/rorschach-test/edit', (req, res) => {
+    Rorschach.find({}, (err, allImages) => {
         res.render('edit.ejs', {
-            foundEntry
+            testDb: allImages
         })
     })
 })
 
+// INDEX
 
-// SHOW
-
-app.get('/rorschach-test/:id/show', (req, res) => {
-    Rorschach.findById(req.params.id, (err, foundEntry) =>{
-        res.render('show.ejs', {
-            foundEntry
-        })
-    })
+app.get('/rorschach-test', (req, res) => {
+    res.render('index.ejs')
 })
+
+// app.get('/rorschach-test/:id/show', (req, res) => {
+//     Rorschach.findById(req.params.id, (err, foundEntry) =>{
+//         res.render('show.ejs', {
+//             foundEntry
+//         })
+//     })
+// })
 
 
 // CREATE
