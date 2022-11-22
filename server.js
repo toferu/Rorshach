@@ -82,9 +82,9 @@ app.post('/rorschach-test', (req, res) =>{
 })
 // EDIT
 
-app.put('/rorschach-test/:id', (req, res) =>{
+app.put('/rorschach-test/:id/show', (req, res) =>{
     Rorschach.findByIdAndUpdate(req.params.id, req.body, {new:true},  (err, updatedEntry)=>{
-        res.redirect('/rorschach-test')
+        res.redirect('/rorschach-test/edit')
     })
 })
 
@@ -92,7 +92,7 @@ app.put('/rorschach-test/:id', (req, res) =>{
 
 app.delete('/rorschach-test/:id', (req, res) => {
     Rorschach.findByIdAndRemove(req.params.id, (err, data) => {
-        res.redirect('/rorschach-test')
+        res.redirect('/rorschach-test/edit')
     })
 })
 
