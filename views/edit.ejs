@@ -13,13 +13,13 @@
         <a href="/rorschach-test/:id/show">Take the Test</a>
     </nav>
     <div class="container">
-        <ul>
+        
             <% for (let i = 0; i < testDb.length; i++) { %>
-                <li><p><%=testDb[i].updatedAt %></p></li>
-                <li><img src="<%=testDb[i].image %>" alt="" width="275" height="150"></li></br>
-                <li><p><%=testDb[i].statement %></p></li>
+                <p><%=testDb[i].updatedAt %></p>
+                <img src="<%=testDb[i].image %>" alt="" width="275" height="150"></br>
+                <p><%=testDb[i].statement %></p>
          <%  } %>
-        </ul>
+        
 
     </div>
 </body>

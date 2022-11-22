@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
-
+const Comments = require('./models/userdataSchema.js')
 const Rorschach = require('./models/rorschachSchema.js')
 const  rorSeed = require('./models/rorschachs.js')
 
