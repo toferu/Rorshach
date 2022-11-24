@@ -43,9 +43,9 @@ app.get('/rorschach-test/:id/show', (req, res) => {
 // })
 
 app.get('/rorschach-test/edit', (req, res) => {
-    Rorschach.find({}, (err, allImages) => {
+    Comments.find({}, (err, allSubmissions) => {
         res.render('edit.ejs', {
-            testDb: allImages
+            userDb: allSubmissions
         })
     })
 })
@@ -67,8 +67,16 @@ app.get('/rorschach-test', (req, res) => {
 
 // CREATE
 
-app.get('/rorschach-test/create', (req, res) => {
-    res.render('create.ejs')
+// app.get('/rorschach-test/create', (req, res) => {
+//     res.render('create.ejs')
+// })
+
+app.get('/rorschach-test/:id/create', (req, res) => {
+    Rorschach.find({}, (err, allImages) => {
+        res.render('create.ejs', {
+            testDb: allImages
+        })
+    })
 })
 
 // ACTION ROUTES //
@@ -76,14 +84,14 @@ app.get('/rorschach-test/create', (req, res) => {
 // CREATE
 
 app.post('/rorschach-test', (req, res) =>{
-    Rorschach.create(req.body, (err, createdEntry)=>{
-        res.redirect('/rorschach-test')
+    Comments.create(req.body, (err, createdEntry)=>{
+        res.redirect('/rorschach-test/edit')
     })
 })
 // EDIT
 
-app.put('/rorschach-test/:id/show', (req, res) =>{
-    Rorschach.findByIdAndUpdate(req.params.id, req.body, {new:true},  (err, updatedEntry)=>{
+app.put('/rorschach-test/:id/create', (req, res) =>{
+    Rorschach.findById(req.params.id, req.body, {new:true},  (err, updatedEntry)=>{
         res.redirect('/rorschach-test/edit')
     })
 })

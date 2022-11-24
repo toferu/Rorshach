@@ -17,7 +17,7 @@
         
        <img src="<%=testDb[i].image %>" alt="" width="275" height="150"> 
         <p>What do you see?</p>
-       <form action="/rorschach-test/<%=testDb[i].id%>/show?_method=PUT" method="POST">
+       <form action="/rorschach-test/<%=testDb[i].id%>/show" method="POST">
         <textarea name="statement" value="<%=testDb[i].statement %>" rows="6" cols="30">
         </textarea>
     </br>
