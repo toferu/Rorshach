@@ -10,15 +10,17 @@
     <h1>What do you see?</h1>
     <nav>
         <a href="/rorschach-test"> Home</a>
-        <a href="/rorschach-test/edit"> Submissions</a>
+        <a href="/rorschach-test/show"> Submissions</a>
     </nav>
     <div class="container">
         <% let i = Math.floor(Math.random() * testDb.length)%>
-        
-       <img src="<%=testDb[i].image %>" alt="" width="275" height="150"> 
+         
         <p>What do you see?</p>
-       <form action="/rorschach-test/<%=testDb[i].id%>/create?_method=PUT" method="PUT">
-        <textarea name="statement" value="<%=testDb[i].statement %>" rows="6" cols="30">
+        <img src="<%=testDb[i].image %>" value="image" alt="" width="275" height="150">
+
+       <form action="/rorschach-test/create" method="POST">
+        <input type="hidden" name="image" value="<%=testDb[i].image %>">
+        <textarea name="statement" value="statement" rows="6" cols="30">
         </textarea>
     </br>
        <input type="submit" name"" value="Submit Response">
@@ -26,4 +28,3 @@
     </div>
 </body>
 </html>
-
