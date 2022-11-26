@@ -14,6 +14,10 @@
     </nav>
     <div class="container">
         
+        <% userDb.sort((a, b) => { %>
+ <% return new Date(b.createdAt) - new Date(a.createdAt) %>
+        <%  }) %>
+
             <% for (let i = 0; i < userDb.length; i++) { %>
                 <p><%=userDb[i].updatedAt %></p>
                 <img src="<%=userDb[i].image %>" alt="" width="275" height="150"></br>
