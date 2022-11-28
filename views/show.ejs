@@ -7,12 +7,12 @@
     <%- include('../partials/head.ejs') %>
     <title>Ink Blot Aggregator</title>
 </head>
-<body class="submission-body">
+<body id="submission-body">
 
-    <nav id="submission-header">
-        <h1>Submissions</h1>
+    <nav class="submission-header">
+        <h1>Past Submissions</h1>
         <a href="/rorschach-test">Home</a>
-        <a href="/rorschach-test/create">Take the Test</a>
+        <a href="/rorschach-test/create">Create a Caption</a>
     </nav>
     <div class="display-container">
         
@@ -22,10 +22,10 @@
 
             <% for (let i = 0; i < userDb.length; i++) { %>
                 <p><%=userDb[i].updatedAt %></p>
-                <img src="<%=userDb[i].image %>" alt="" width="275" height="150"></br>
-                <p><%=userDb[i].statement %></p>
+                <img src="<%=userDb[i].image %>" alt="" width="275" height="200"></br>
+                <p id="statement-text"><%=userDb[i].statement %></p>
                 <h4>comments:</h4>
-                <p><%=userDb[i].comments %></p>
+                <p id="comment-text"><%=userDb[i].comments %></p>
                 <a href="/rorschach-test/<%=userDb[i].id %>/edit">Leave A Comment</a>
          <%  } %>
         

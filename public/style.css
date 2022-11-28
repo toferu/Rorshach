@@ -2,13 +2,21 @@
     font-family: 'Lato', sans-serif;
 }
 
-body {
+#index-body {
     background-image: url("https://lockwood.dev/assets/img/gol/long.gif");    
 }
 
-#splash-header {
+#splash-nav {
     background-color: yellow;
     color: violet;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#splash-nav a {
+    text-decoration: none;
+    margin-top: 2.5em;
 }
 
 .splash-container {
@@ -27,17 +35,22 @@ body {
 .splash-text {
     margin-left: 2em;
     margin-right: 2em;
+    opacity: 92%;
 }
 
 .display-container {
     width: 60vw;
-    height: 60vh;
+    height: auto;
 }
 
-.submission-body {
+#submission-body {
     background-image: url("https://c2.staticflickr.com/2/1828/29205932638_fa25cf813e_o.gif");
-    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
+
 
 .splash-text{
     background-color: whitesmoke;
@@ -53,18 +66,123 @@ body {
     font-weight: bolder;
 }
 
-.create-container{
+#create-nav {
+    background-color: yellow;
+    color: violet;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#create-nav a {
+    text-decoration: none;
+    margin-top: 2.5em;
+}
+/* .create-page-body {
+
+} */
+
+.create-container {
+    margin:1em 8em;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    /* flex-wrap: wrap; */
     object-fit: contain;
     width: 35vw;
     height: 20vh;
 }
 
-#submission-header {
-    background-color: whitesmoke;
+.test-image {
+    /* box-shadow: 5px 3px blueviolet; */
+    filter: drop-shadow(3px 3px 4px #4444dd);
+}
+
+.create-container #submit-text {
+    margin-top: 1em;
+    width: 63vw;
+    height: 10vh;
+}
+
+
+.test-image {
+    width: 64vw;
+    height: 48vh;
+}
+
+
+.submission-header {
+    background-color: yellow;
+    color: violet;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100vw;
 
 }
 
+.submission-header a {
+    text-decoration: none;
+    margin-top: 2.5em;
+}
+
+nav a:hover {
+    color: whitesmoke;
+}
+
 .display-container {
-    background-color: blueviolet;
+    margin: 3em 0em;
+    background-color: #4444dd;
     color: yellow;
+    object-fit: cover;
+}
+
+.display-container img {
+   margin-left: 5em;
+}
+
+#statement-text {
+    border: 2px solid black;
+    padding: 2em .5em;
+}
+
+#comment-text {
+    border-bottom: 2px solid black;
+}
+
+.display-container a {
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.display-container a:hover {
+    color: black;
+}
+
+#edit-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edit-container {
+    margin-left: 4em;
+    margin-top: 2em;
+    width: 65vw;
+    height: 88vh;
+    object-fit: contain;
+}
+
+.edit-container img {
+    width: 55vw;
+    height: 50vh;
+    filter: drop-shadow(3px 3px 4px #4444dd);
+    
+}
+
+.edit-container #edit-text {
+    width: 55vw;
+    height: 10vh;
 }

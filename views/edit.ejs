@@ -7,23 +7,32 @@
     <%- include('../partials/head.ejs') %>
     <title>Ink Blot Aggregator </title>
 </head>
-<body>
+<body id="edit-body">
+
+    <nav class="submission-header">
+        <h1>Edit a Comment</h1>
+        <a href="/rorschach-test">Home</a>
+        <a href="/rorschach-test/create">Create a Caption</a>
+        <a href="/rorschach-test/show">Past Submissions</a>
+        
+    </nav>
+
     <div class="edit-container">
         <img src="<%=entry.image %>">
         <p>Statement: <%=entry.statement %></p>
         <p>Comment: <%=entry.comments.text %></p>
-        </div>
+        
 
-    <form action="/rorschach-test/<%=entry.id%>/edit?_method=PUT" method="POST">
-        <textarea name="comments" value="comments" rows="6" cols="30">
+        <form action="/rorschach-test/<%=entry.id%>/edit?_method=PUT" method="POST">
+        <textarea id="edit-text" name="comments" value="comments" rows="6" cols="30">
         </textarea><br/>
         <input type="submit" value="Submit"/><br/>
-    </form>    
+         </form>    
     <!-- DELETE FORM -->
 
-    <form action="/rorschach-test/<%=entry.id%>?_method=DELETE" method="POST">
+         <form action="/rorschach-test/<%=entry.id%>?_method=DELETE" method="POST">
         <input type="submit" value="DELETE">
-    </form>
-
+        </form>
+    </div>
 </body>
 </html>
