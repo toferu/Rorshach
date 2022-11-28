@@ -7,20 +7,22 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Submissions</h1>
-    <nav>
-        <a href="/rorschach-test">Home</a>
-        <a href="/rorschach-test/:id/show">Take the Test</a>
-    </nav>
-    <div class="container">
-        
-            <% for (let i = 0; i < userDb.length; i++) { %>
-                <p><%=userDb[i].updatedAt %></p>
-                <img src="<%=userDb[i].image %>" alt="" width="275" height="150"></br>
-                <p><%=userDb[i].statement %></p>
-         <%  } %>
-        
+    <div class="edit-container">
+        <img src="<%=entry.image %>">
+        <p>Statement: <%=entry.statement %></p>
+        <p>Comment: <%=entry.comments.text %></p>
+        </div>
 
-    </div>s
+    <form action="/rorschach-test/<%=entry.id%>/edit?_method=PUT" method="POST">
+        <textarea name="comments" value="comments" rows="6" cols="30">
+        </textarea><br/>
+        <input type="submit" value="Submit"/><br/>
+    </form>    
+    <!-- DELETE FORM -->
+
+    <form action="/rorschach-test/<%=entry.id%>?_method=DELETE" method="POST">
+        <input type="submit" value="DELETE">
+    </form>
+
 </body>
 </html>

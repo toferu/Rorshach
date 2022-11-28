@@ -1,14 +1,4 @@
-// const mongoose = require('mongoose');
-// const Comments = require('./rorschachs.js');
 
-// const commentSchema = mongoose.Schema({
-// 	image: String,
-// 	comments: [Comments.schema]
-// });
-
-// const Author = mongoose.model('Comments', commentSchema);
-
-// module.exports = Comments;
 const mongoose = require('mongoose')
 
 const commentSchema = new mongoose.Schema({
@@ -16,13 +6,12 @@ const commentSchema = new mongoose.Schema({
     statement: {type: String},
     comments: [
         {
-        id: Number,
         type: Array,
         date: {type: Date, default: Date.now},
-        text: String,
-        replies: [{
-            id: Number, type: Array, date: Date, text: String
-        }]
+        text: String
+        // replies: [{
+        //     id: Number, type: Array, date: Date, text: String
+        // }]
         }]
 }, {timestamps: true})
 

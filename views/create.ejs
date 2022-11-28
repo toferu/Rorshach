@@ -4,23 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Ink Blot Aggregator</title>
 </head>
-<body>
+<body class="create-page-body">
     <h1>What do you see?</h1>
     <nav>
         <a href="/rorschach-test"> Home</a>
         <a href="/rorschach-test/show"> Submissions</a>
     </nav>
-    <div class="container">
+    <div class="create-container">
         <% let i = Math.floor(Math.random() * testDb.length)%>
          
         <p>What do you see?</p>
-        <img src="<%=testDb[i].image %>" value="image" alt="" width="275" height="150">
+        <img class="test-image" src="<%=testDb[i].image %>" value="image" alt="">
 
        <form action="/rorschach-test/create" method="POST">
         <input type="hidden" name="image" value="<%=testDb[i].image %>">
-        <textarea name="statement" value="statement" rows="6" cols="30">
+        <textarea name="statement" value="statement" rows="18" cols="75">
         </textarea>
     </br>
        <input type="submit" name"" value="Submit Response">

@@ -4,27 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Ink Blot Aggregator</title>
 </head>
-<body>
+<body class="submission-body">
     <h1>Submissions</h1>
     <nav>
         <a href="/rorschach-test">Home</a>
         <a href="/rorschach-test/create">Take the Test</a>
     </nav>
-    <div class="container">
+    <div class="display-container">
         
-        <% userDb.sort((a, b) => { %>
- <% return new Date(b.createdAt) - new Date(a.createdAt) %>
+<% userDb.sort((a, b) => { %>
+    <% return new Date(b.createdAt) - new Date(a.createdAt) %>
         <%  }) %>
 
             <% for (let i = 0; i < userDb.length; i++) { %>
                 <p><%=userDb[i].updatedAt %></p>
                 <img src="<%=userDb[i].image %>" alt="" width="275" height="150"></br>
                 <p><%=userDb[i].statement %></p>
+                <h4>comments:</h4>
+                <p><%=userDb[i].comments %></p>
+                <a href="/rorschach-test/<%=userDb[i].id %>/edit">Leave A Comment</a>
          <%  } %>
         
 
-    </div>s
+    </div>
 </body>
 </html>

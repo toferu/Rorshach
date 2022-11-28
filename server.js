@@ -22,7 +22,7 @@ app.get('/rorschach-test/seed', (req, res) => {
 
 // GET ROUTES //
 
-// This is the page where users input their interpretations of images
+// PAST USER SUBMISSIONS PAGE (SHOW)
 
 app.get('/rorschach-test/show', (req, res) => {
     Comments.find({}, (err, allSubmissions) => {
@@ -33,38 +33,28 @@ app.get('/rorschach-test/show', (req, res) => {
 })
 
 
-// EDIT
+// EDIT PAGE
 
 app.get('/rorschach-test/:id/edit', (req, res) => {
-    Rorschach.findById(req.params.id, (err, foundEntry) => {
+    Comments.findById(req.params.id, (err, foundEntry) => {
         res.render('edit.ejs', {
-            foundEntry
-        })
-    })
+            entry: foundEntry
+        }) 
+    }) 
 })
 
 
 
-// INDEX
+// INDEX PAGE
 
 app.get('/rorschach-test', (req, res) => {
     res.render('index.ejs')
 })
 
-// app.get('/rorschach-test/:id/show', (req, res) => {
-//     Rorschach.findById(req.params.id, (err, foundEntry) =>{
-//         res.render('show.ejs', {
-//             foundEntry
-//         })
-//     })
-// })
 
 
-// CREATE
+// CREATE USER SUBMISSION PAGE
 
-// app.get('/rorschach-test/create', (req, res) => {
-//     res.render('create.ejs')
-// })
 
 app.get('/rorschach-test/create', (req, res) => {
     Rorschach.find({}, (err, allImages) => {
@@ -89,15 +79,18 @@ app.post('/rorschach-test/create', (req, res) =>{
 // EDIT
 
 app.put('/rorschach-test/:id/edit', (req, res) =>{
-    Rorschach.findById(req.params.id, req.body, {new:true},  (err, updatedEntry)=>{
-        res.redirect('/rorschach-test/:id/edit')
+    Comments.findByIdAndUpdate(req.params.id, req.body, {new:true},  (err, updatedEntry)=>{
+        updatedEntry.comments.push()
+        updatedEntry.save((err,data) => {
+        res.redirect('/rorschach-test/show')
+        })
     })
 })
 
 // DELETE
 
 app.delete('/rorschach-test/:id/edit', (req, res) => {
-    Rorschach.findByIdAndRemove(req.params.id, (err, data) => {
+    Comments.findByIdAndRemove(req.params.id, (err, data) => {
         res.redirect('/rorschach-test/show')
     })
 })
