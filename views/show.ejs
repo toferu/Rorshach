@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <%- include('../partials/head.ejs') %>
     <title>Ink Blot Aggregator</title>
 </head>
 <body class="submission-body">
-    <h1>Submissions</h1>
-    <nav>
+
+    <nav id="submission-header">
+        <h1>Submissions</h1>
         <a href="/rorschach-test">Home</a>
         <a href="/rorschach-test/create">Take the Test</a>
     </nav>

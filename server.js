@@ -5,11 +5,20 @@ const methodOverride = require('method-override')
 const Comments = require('./models/userdataSchema.js')
 const Rorschach = require('./models/rorschachSchema.js')
 const  rorSeed = require('./models/rorschachs.js')
+const path = require('path')
 
 // MIDDLEWARE //
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
-app.use(express.static('public'))
+// app.use(express.static(__dirname + 'public', {
+//     index: false,
+//     immutable: true,
+//     cacheControl: true,
+//     maxAge: "30d"
+// }))
+app.use('/public', express.static(path.join(__dirname, "public")));
+// app.set('view engine', 'ejs')
+// app.set("views", "./views")
 
 // IMAGE SEED //
 

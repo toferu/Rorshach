@@ -1,5 +1,14 @@
+* {
+    font-family: 'Lato', sans-serif;
+}
+
 body {
     background-image: url("https://lockwood.dev/assets/img/gol/long.gif");    
+}
+
+#splash-header {
+    background-color: yellow;
+    color: violet;
 }
 
 .splash-container {
@@ -10,8 +19,8 @@ body {
 }
 
 #splash-gif {
-    height: 45vh;
-    width: 60vw;
+    /* height: 45vh;
+    width: 60vw; */
     margin: 2.5em;
 }
 
@@ -20,11 +29,14 @@ body {
     margin-right: 2em;
 }
 
-
+.display-container {
+    width: 60vw;
+    height: 60vh;
+}
 
 .submission-body {
-    /* background-image: url("https://c2.staticflickr.com/2/1828/29205932638_fa25cf813e_o.gif"); */
-    background-color: blue;
+    background-image: url("https://c2.staticflickr.com/2/1828/29205932638_fa25cf813e_o.gif");
+    /* background-color: blue; */
 }
 
 .splash-text{
@@ -45,4 +57,14 @@ body {
     object-fit: contain;
     width: 35vw;
     height: 20vh;
+}
+
+#submission-header {
+    background-color: whitesmoke;
+
+}
+
+.display-container {
+    background-color: blueviolet;
+    color: yellow;
 }
