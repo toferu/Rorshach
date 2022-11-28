@@ -16,6 +16,8 @@
     </nav>
     <div class="display-container">
         
+
+        <!-- stack overflow for this: https://stackoverflow.com/questions/60310434/sorting-array-in-nodejs-by-date-order-recent-to-oldest I used timestamp properties instead-->
 <% userDb.sort((a, b) => { %>
     <% return new Date(b.createdAt) - new Date(a.createdAt) %>
         <%  }) %>
